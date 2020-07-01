@@ -1,0 +1,5 @@
+﻿  ConsoleApplication9.cpp
+c:\users\오원재\source\repos\consoleapplication9\consoleapplication9\consoleapplication9.cpp(12): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\오원재\source\repos\consoleapplication9\consoleapplication9\consoleapplication9.cpp(23): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\오원재\source\repos\consoleapplication9\consoleapplication9\consoleapplication9.cpp(46): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  ConsoleApplication9.vcxproj -> C:\Users\오원재\source\repos\ConsoleApplication9\Debug\ConsoleApplication9.exe
