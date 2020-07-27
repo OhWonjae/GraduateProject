@@ -16,7 +16,7 @@ for i in img:
     print(n)
     imgUrl = i['data-source']
     with urlopen(imgUrl) as f:
-        with open('./images/img' + str(n) + '.jpg', 'wb') as h:  # w - write b - binary
+        with open('./마스크씀/' + str(n) + '.jpg', 'wb') as h:  # w - write b - binary
             img = f.read()
             h.write(img)
     n += 1
