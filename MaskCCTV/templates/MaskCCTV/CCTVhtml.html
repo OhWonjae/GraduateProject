@@ -1,0 +1,79 @@
+
+<!------ Include the above in your HEAD tag ---------->
+<!doctype html>
+<html lang="en">
+<head>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="js/cctv.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> <!-- 차트 링크 --> <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+</head>
+<h1 class="text-center m-4">MASK CCTV SYSTEM</h1>
+<br>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-12 ">
+			<nav>
+				<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+					<a class="nav-item nav-link active" id="nav-cctv-tab" data-toggle="tab-cctv" href="#nav-cctv" role="tab" aria-controls="nav-cctv" aria-selected="true">CCTV</a>
+					<a class="nav-item nav-link" id="nav-graph-tab" data-toggle="tab-graph" href="#nav-graph" role="tab" aria-controls="nav-graph" aria-selected="false">Graph</a>
+					<a class="nav-item nav-link" id="nav-setting-tab" data-toggle="tab-setting" href="#nav-setting" role="tab" aria-controls="nav-setting" aria-selected="false">Setting</a>
+					<a class="nav-item nav-link" id="nav-description-tab" data-toggle="tab-description" href="#nav-description" role="tab" aria-controls="nav-description" aria-selected="false">Description</a>
+				</div>
+
+			<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+
+				<div class="tab-pane fade show active" id="tab-cctv" role="tabpanel" aria-labelledby="nav-cctv-tab">
+
+						<iframe width="500" height="315" marginwidth="5px" marginheight="5px"  src="https://www.youtube.com/embed/ybhXVSAdIRE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					1
+
+
+
+						<iframe width="500" height="315" marginwidth="5px" marginheight="5px"  src="https://www.youtube.com/embed/ybhXVSAdIRE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+							2
+
+						<iframe width="500" height="315" marginwidth="5px" marginheight="5px"  src="https://www.youtube.com/embed/ybhXVSAdIRE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+							3
+
+						<iframe width="500" height="315" marginwidth="5px" marginheight="5px"  src="https://www.youtube.com/embed/ybhXVSAdIRE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+							4
+
+				</div>
+				<div class="tab-pane fade" id="tab-graph" role="tabpanel" aria-labelledby="nav-graph-tab">
+					<div class="container">
+						<canvas id="myChart"></canvas>
+					</div>
+						<!-- 차트 -->
+					<script> var ctx = document.getElementById('myChart').getContext('2d');
+					var chart = new Chart(ctx, {type: 'line', data: { labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'], datasets: [{ label: 'My First dataset', backgroundColor: 'transparent', borderColor: 'red', data: [0, 10, 5, 2, 20, 30, 45] }] }, options: {} });
+				</script>
+
+					</div>
+				<div class="tab-pane fade" id="tab-setting" role="tabpanel" aria-labelledby="nav-setting-tab">
+
+					</div>
+				<div class="tab-pane fade" id="tab-description" role="tabpanel" aria-labelledby="nav-description-tab">
+
+				</div>
+			</div>
+			</nav>
+
+		</div>
+	</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+</body>
+</html>
