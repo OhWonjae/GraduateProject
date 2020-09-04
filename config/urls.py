@@ -15,8 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include,path
-
+from django.views.generic import RedirectView
+from django.conf.urls import include
+from django.conf import settings
+from django.conf.urls.static import static
+from MaskCCTV import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('MaskCCTV.urls'))
-]
+    path('cctv/', include('MaskCCTV.urls')),
+    path("",RedirectView.as_view(url="accounts/login") ),
+    path('accounts/',include('django.contrib.auth.urls')),
+    path('Mask/<str:place><int:isMask>/',views.get)
+] + static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
+#png 이미지, 텍스트

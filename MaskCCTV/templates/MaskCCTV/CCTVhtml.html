@@ -1,18 +1,27 @@
 
 <!------ Include the above in your HEAD tag ---------->
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:float="http://www.w3.org/1999/xhtml" xmlns:width="http://www.w3.org/1999/xhtml">
 <head>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="js/cctv.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> <!-- 차트 링크 --> <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 </head>
-<h1 class="text-center m-4">MASK CCTV SYSTEM</h1>
+{% block title %}<h1 class="text-center m-4">MASK CCTV SYSTEM</h1>{% endblock %}
 <br>
 <body>
+<!--<div style="border: 1px solid gold; float: left; width: 33%;">-->
+<!--	첫번째 영역-->
+<!--</div>-->
+<!--<div style="border: 1px solid red; float: left; width: 33%;">-->
+<!--	두번째 영역-->
+<!--</div>-->
+<!--<div style="border: 1px solid blue; float: left; width: 33%;">-->
+<!--	세번째 영역-->
+<!--</div>-->
+
 <div class="container">
 	<div class="row">
 		<div class="col-12 ">
@@ -27,40 +36,78 @@
 			<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
 
 				<div class="tab-pane fade show active" id="tab-cctv" role="tabpanel" aria-labelledby="nav-cctv-tab">
-
-						<iframe width="500" height="315" marginwidth="5px" marginheight="5px"  src="https://www.youtube.com/embed/ybhXVSAdIRE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					1
-
-
-
-						<iframe width="500" height="315" marginwidth="5px" marginheight="5px"  src="https://www.youtube.com/embed/ybhXVSAdIRE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-							2
-
-						<iframe width="500" height="315" marginwidth="5px" marginheight="5px"  src="https://www.youtube.com/embed/ybhXVSAdIRE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-							3
-
-						<iframe width="500" height="315" marginwidth="5px" marginheight="5px"  src="https://www.youtube.com/embed/ybhXVSAdIRE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-							4
+					<div style=" float: left; width: 50%; text-indent: 200px;">
+						<b>남춘천역</b>
+					</div>
+					<div style=" float: left; width: 50%;  text-indent: 200px;">
+						<b>강남역</b>
+					</div>
+					<div style=" float: left; width: 50%;">
+						<iframe  title="남춘천역" width="500" height="315" marginwidth="5px" marginheight="5px"  src="https://www.youtube.com/embed/ybhXVSAdIRE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<div style="float: left; width: 50%;">
+						<iframe  width="500" height="315" marginwidth="5px" marginheight="5px"  src="https://www.youtube.com/embed/ybhXVSAdIRE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+					<div style=" float: left; width: 100%; text-indent: 200px; ">
+						<b>사릉역</b>
+					</div>
+					<div style=" float: left; width: 50%;">
+						<iframe  width="500" height="315" marginwidth="5px" marginheight="5px"  src="https://www.youtube.com/embed/ybhXVSAdIRE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
 
 				</div>
-				<div class="tab-pane fade" id="tab-graph" role="tabpanel" aria-labelledby="nav-graph-tab">
+				<div class="tab-pane fade  " id="tab-graph" role="tabpanel" aria-labelledby="nav-graph-tab">
 					<div class="container">
 						<canvas id="myChart"></canvas>
 					</div>
+					{% block content %}
 						<!-- 차트 -->
-					<script> var ctx = document.getElementById('myChart').getContext('2d');
-					var chart = new Chart(ctx, {type: 'line', data: { labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'], datasets: [{ label: 'My First dataset', backgroundColor: 'transparent', borderColor: 'red', data: [0, 10, 5, 2, 20, 30, 45] }] }, options: {} });
-				</script>
+					<script> var ctx = document.getElementById('myChart');
+					var myChart = new Chart(ctx,
+					 { type: 'bar',
+					 data: { labels: ['NamChuncheon', 'Gangnam', 'Sareung'],
+					  datasets: [{ label: '# SetMaskRatio', data: [{{ NamChuncheonRatio}}, {{ GangnamRatio}},{{ SareungRatio}}],
+					  backgroundColor: [ 'rgba(255, 99, 132, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(255, 99, 132, 0.2)' ], borderWidth: 1 }] },
+					   options: { scales: { yAxes: [{ ticks: { beginAtZero: true } }] } } });
+						</script>
+					<br>
+					<br>
+					<table border="1" width ="1000" align ="center">
+						<tr align ="center">
+							<td><b>Mask CCTV 장소</b></td>
+							<td><b>전체 누적 인원</b></td>
+							<td><b>마스크 쓴 인원</b></td>
+							<td><b>전체 인원 중 마스크 쓴 인원의 비율</b></td>
 
+						</tr>
+						<tr>
+							<td  align ="center">남춘천역</td>
+							<td  align ="center">{{ num_NamChuncheon}}</td>
+							<td  align ="center">{{ num_MaskNamChuncheon}}</td>
+							<td  align ="center">{{ NamChuncheonRatio}}</td>
+						</tr>
+						<tr>
+							<td  align ="center">강남역</td>
+							<td  align ="center">{{ num_Gangnam}}</td>
+							<td  align ="center">{{ num_MaskGangnam}}</td>
+							<td  align ="center">{{ GangnamRatio}}</td>
+						</tr>
+						<tr>
+							<td  align ="center">사릉역</td>
+							<td  align ="center">{{ num_Sareung}}</td>
+							<td  align ="center">{{ num_MaskSareung}}</td>
+							<td  align ="center">{{ SareungRatio}}</td>
+						</tr>
+					</table>
+					{% endblock %}
 					</div>
 				<div class="tab-pane fade" id="tab-setting" role="tabpanel" aria-labelledby="nav-setting-tab">
-
-					</div>
+					<li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+				</div>
 				<div class="tab-pane fade" id="tab-description" role="tabpanel" aria-labelledby="nav-description-tab">
-
+					만든 사람 : 김형원, 김건학, 오원재
+					<br>설명 : 해당 웹 서버는 각 지역의 지하철역 카메라에서 인식한 사람들의 마스크 착용 유무 결과를 취합해 줍니다.
+					<br>
 				</div>
 			</div>
 			</nav>
@@ -70,10 +117,19 @@
 </div>
 </div>
 </div>
+<script>
+	$(document).ready(function(){
 
-
-
-
-
+    $('div a.nav-item.nav-link').click(function(){
+        var tab_id = $(this).attr('data-toggle');
+        $('div a.nav-item.nav-link').removeClass('active');
+        $('.tab-pane').removeClass('show active');
+    console.log(this)
+        console.log(tab_id)
+        $(this).addClass('active');
+        $("#"+tab_id).addClass('show active');
+    })
+})
+</script>
 </body>
 </html>
