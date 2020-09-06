@@ -52,3 +52,5 @@ https://ultrakid.tistory.com/16
 아마존 + yolo
 https://kinocoder.tistory.com/13
 
+colab+yolo 사용방법
+https://wiserloner.tistory.com/1181
