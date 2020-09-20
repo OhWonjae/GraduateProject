@@ -20,7 +20,7 @@
 #endif
 /**insert**************/
 #include <stdlib.h>
-#include <windows.h>
+//#include <windows.h>
 /**end***************/
 
 extern int check_mistakes;
@@ -505,11 +505,11 @@ void draw_detections(image im, int num, float thresh, box *boxes, float **probs,
         insert code
 ***************************************/
             FILE* link_open; // **
-            if(!strcmp(names[class], "no-mask") || !strcmp(names[class], "mask"))){
+            if(!strcmp(names[class_id], "no-mask") || !strcmp(names[class_id], "mask")){
                 printf("start");
-                char[] links = "http://121.158.144.238:8000/Mask/namchuncheon";
-                char[] classNum = class + "0";
-                strcat(links, classNum);
+                char links[] = "http://121.158.144.238:8000/Mask/namchuncheon";
+                char cnum = (class_id + '0');
+                strcat(links, cnum);
                
                 link_open = fopen(links,"a");
                 
@@ -530,10 +530,10 @@ void draw_detections(image im, int num, float thresh, box *boxes, float **probs,
         }
     }
     // 5초간 멈춤 -> 5초에 한번씩 카운팅을 위해
-    printf("stop for 5second...");
+   printf("stop for 5second...");
     for(int i = 5; i >= 0; i--){
         printf("%d",i);
-        Sleep(1000);
+        sleep(1);
     }
 }
 /**************************************
