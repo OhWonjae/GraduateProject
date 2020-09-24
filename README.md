@@ -54,3 +54,6 @@ https://kinocoder.tistory.com/13
 
 colab+yolo 사용방법
 https://wiserloner.tistory.com/1181
+
+구글 인텔리전스 동영상 스트리밍 API
+https://cloud.google.com/video-intelligence/docs/quickstart-client-libraries?hl=ko
