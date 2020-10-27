@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> <!-- 차트 링크 --> <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 </head>
-{% block title %}<h1 class="text-center m-4">MASK CCTV SYSTEM</h1>{% endblock %}
+{% block title %}<h1 class="text-center m-4">MASK RECOGNIZE SYSTEM</h1>{% endblock %}
 <br>
 <body>
 <!--<div style="border: 1px solid gold; float: left; width: 33%;">-->
@@ -27,15 +27,15 @@
 		<div class="col-12 ">
 			<nav>
 				<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-					<a class="nav-item nav-link active" id="nav-cctv-tab" data-toggle="tab-cctv" href="#nav-cctv" role="tab" aria-controls="nav-cctv" aria-selected="true">CCTV</a>
-					<a class="nav-item nav-link" id="nav-graph-tab" data-toggle="tab-graph" href="#nav-graph" role="tab" aria-controls="nav-graph" aria-selected="false">Graph</a>
+					<!--<a class="nav-item nav-link active" id="nav-cctv-tab" data-toggle="tab-cctv" href="#nav-cctv" role="tab" aria-controls="nav-cctv" aria-selected="true">CCTV</a>-->
+					<a class="nav-item nav-link active" id="nav-graph-tab" data-toggle="tab-graph" href="#nav-graph" role="tab" aria-controls="nav-graph" aria-selected="true">Graph</a>
 					<a class="nav-item nav-link" id="nav-setting-tab" data-toggle="tab-setting" href="#nav-setting" role="tab" aria-controls="nav-setting" aria-selected="false">Setting</a>
 					<a class="nav-item nav-link" id="nav-description-tab" data-toggle="tab-description" href="#nav-description" role="tab" aria-controls="nav-description" aria-selected="false">Description</a>
 				</div>
 
 			<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
 
-				<div class="tab-pane fade show active" id="tab-cctv" role="tabpanel" aria-labelledby="nav-cctv-tab">
+			<!--	<div class="tab-pane fade show active" id="tab-cctv" role="tabpanel" aria-labelledby="nav-cctv-tab">
 					<div style=" float: left; width: 50%; text-indent: 200px;">
 						<b>남춘천역</b>
 					</div>
@@ -43,20 +43,20 @@
 						<b>강남역</b>
 					</div>
 					<div style=" float: left; width: 50%;">
-						<iframe  title="남춘천역" width="500" height="315" marginwidth="5px" marginheight="5px"  src="https://www.youtube.com/embed/ybhXVSAdIRE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<iframe  title="남춘천역" width="500" height="315" marginwidth="5px" marginheight="5px"  src="http://121.158.144.238:8081/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 					<div style="float: left; width: 50%;">
-						<iframe  width="500" height="315" marginwidth="5px" marginheight="5px"  src="https://www.youtube.com/embed/ybhXVSAdIRE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<iframe  width="500" height="315" marginwidth="5px" marginheight="5px"  src="http://121.158.144.238:8081/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 					<div style=" float: left; width: 100%; text-indent: 200px; ">
 						<b>사릉역</b>
 					</div>
 					<div style=" float: left; width: 50%;">
-						<iframe  width="500" height="315" marginwidth="5px" marginheight="5px"  src="https://www.youtube.com/embed/ybhXVSAdIRE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<iframe  width="500" height="315" marginwidth="5px" marginheight="5px"  src="http://121.158.144.238:8081/" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>
 
-				</div>
-				<div class="tab-pane fade  " id="tab-graph" role="tabpanel" aria-labelledby="nav-graph-tab">
+				</div>-->
+				<div class="tab-pane fade  show active" id="tab-graph" role="tabpanel" aria-labelledby="nav-graph-tab">
 					<div class="container">
 						<canvas id="myChart"></canvas>
 					</div>
