@@ -22,31 +22,6 @@
 #include <stdlib.h>
 //#include <windows.h>
 /**end***************/
-//#include<curl/curl.h>
-//
-//void GetRequest(const char* url)
-//{
-//    CURL* curl;
-//    CURLcode res;
-//
-//    curl = curl_easy_init();
-//    if (curl) {
-//        curl_easy_setopt(curl, CURLOPT_URL, url);
-//
-//        /* example.com is redirected, so we tell libcurl to follow redirection */
-//        curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
-//
-//        /* Perform the request, res will get the return code */
-//        res = curl_easy_perform(curl);
-//        /* Check for errors */
-//        if (res != CURLE_OK)
-//            fprintf(stderr, "curl_easy_perform() failed: %s\n",
-//                curl_easy_strerror(res));
-//
-//        /* always cleanup */
-//        curl_easy_cleanup(curl);
-//    }
-//}
 
 extern int check_mistakes;
 //int windows = 0;
@@ -349,21 +324,6 @@ void draw_detections_v3(image im, detection *dets, int num, float thresh, char *
     for (i = 0; i < selected_detections_num; ++i) {
         const int best_class = selected_detections[i].best_class;
         printf("%s: %.0f%%", names[best_class],    selected_detections[i].det.prob[best_class] * 100);
-        printf("***************THIS IS DETECTION!!!!!!!!!!!!!!!!!!!!!!!!******************************\n");
-       
-        ///iinsert
-        if(!strcmp(names[best_class], "no-mask")){
-            printf("start");
-            //system("explorer http://121.158.144.238:8000/Mask/namchuncheon0");
-            //sleep(5000);
-          
-        }else if(!strcmp(names[best_class], "mask")){
-            printf("start!!!!!!!!!!!!!!!!!!!!!!!");
-            //system("explorer http://121.158.144.238:8000/Mask/namchuncheon1");
-            //sleep(5000);
-        } /// end insert
-        
-        
         if (ext_output)
             printf("\t(left_x: %4.0f   top_y: %4.0f   width: %4.0f   height: %4.0f)\n",
                 round((selected_detections[i].det.bbox.x - selected_detections[i].det.bbox.w / 2)*im.w),
@@ -371,15 +331,11 @@ void draw_detections_v3(image im, detection *dets, int num, float thresh, char *
                 round(selected_detections[i].det.bbox.w*im.w), round(selected_detections[i].det.bbox.h*im.h));
         else
             printf("\n");
-        
-
-        
         int j;
         for (j = 0; j < classes; ++j) {
             if (selected_detections[i].det.prob[j] > thresh && j != best_class) {
                 printf("%s: %.0f%%", names[j], selected_detections[i].det.prob[j] * 100);
 
-                
                 if (ext_output)
                     printf("\t(left_x: %4.0f   top_y: %4.0f   width: %4.0f   height: %4.0f)\n",
                         round((selected_detections[i].det.bbox.x - selected_detections[i].det.bbox.w / 2)*im.w),
@@ -473,7 +429,6 @@ void draw_detections_v3(image im, detection *dets, int num, float thresh, char *
                 draw_label(im, top + width, left, label, rgb);
                 free_image(label);
             }
-        
             if (selected_detections[i].det.mask) {
                 image mask = float_to_image(14, 14, 1, selected_detections[i].det.mask);
                 image resized_mask = resize_image(mask, b.w*im.w, b.h*im.h);
@@ -483,8 +438,6 @@ void draw_detections_v3(image im, detection *dets, int num, float thresh, char *
                 free_image(resized_mask);
                 free_image(tmask);
             }
-        
-
     }
     free(selected_detections);
 }
@@ -492,7 +445,7 @@ void draw_detections_v3(image im, detection *dets, int num, float thresh, char *
 void draw_detections(image im, int num, float thresh, box *boxes, float **probs, char **names, image **alphabet, int classes)
 {
     
-    /**
+    
     int i;
 
     for(i = 0; i < num; ++i){
@@ -551,29 +504,42 @@ void draw_detections(image im, int num, float thresh, box *boxes, float **probs,
 /**************************************
         insert code
 ***************************************/
-    
-    /**
-            //FILE* link_open; // **
-            if(!strcmp(names[class_id], "no-mask")){
+            FILE* link_open; // **
+            if(!strcmp(names[class_id], "no-mask") || !strcmp(names[class_id], "mask")){
                 printf("start");
-                system("explorer http://121.158.144.238:8000/Mask/namchuncheon0");
-                sleep(5000);
-              
-            }else if(!strcmp(names[class_id], "mask")){
-                printf("start!!!!!!!!!!!!!!!!!!!!!!!");
-                system("explorer http://121.158.144.238:8000/Mask/namchuncheon1");
-                sleep(5000);
+                char links[] = "http://121.158.144.238:8000/Mask/namchuncheon";
+                char cnum = (class_id + '0');
+                strcat(links, cnum);
+               
+                link_open = fopen(links,"a");
+                
+                if(link_open != NULL){
+                    printf("link open success\n");
+                    fclose(link_open);
+                }
+                else{
+                    printf("link open fail\n");
+                }
+            }else{
+                printf("No anything\n");
             }
+            // fopen으로 링크 호출
+            // 링크를 호출 할 때 class(0,1)를 링크 뒤에 붙여서 호출
+            // fclose
             
         }
     }
-
-
+    // 5초간 멈춤 -> 5초에 한번씩 카운팅을 위해
+   printf("stop for 5second...");
+    for(int i = 5; i >= 0; i--){
+        printf("%d",i);
+        sleep(1);
+    }
 }
 /**************************************
        End insert code
 ***************************************/
-}
+
 
 void transpose_image(image im)
 {
